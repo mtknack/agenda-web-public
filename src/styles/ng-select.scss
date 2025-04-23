@@ -1,0 +1,105 @@
+@import "./colors.scss";
+
+ng-select {
+  width: 100%;
+  background-color: $color-white;
+  color: $color-black;
+  font-size: 16px;
+
+  .ng-select-container {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid $color-light-gray-hover;
+    border-radius: 8px;
+
+    &:hover {
+      border-color: $color-light-gray-hover;
+    }
+  }
+
+  .ng-placeholder {
+    color: $color-default-gray;
+  }
+
+  .ng-input {
+    caret-color: transparent;
+    padding-left: 8px;
+  }
+
+  .ng-select-container--open {
+    border-color: $color-blue;
+  }
+
+  .ng-select-container .ng-value-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .ng-select-container .ng-arrow-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+
+    .ng-arrow {
+      border-color: $color-black;
+      margin-bottom: 4px;
+    }
+  }
+
+  .ng-clear-wrapper {
+    color: $color-black;
+  }
+}
+
+.ng-dropdown-panel {
+  background-color: $color-white;
+  border: 1px solid $color-light-gray-hover;
+  padding: 0 8px 8px 8px;
+  border-top: 0px;
+  border-radius: 0 0 8px 8px;
+
+  transition: background-color 0.8s ease, border-color 0.8s ease,
+    padding 0.8s ease;
+
+  .ng-dropdown-panel-items {
+    .ng-option {
+    }
+
+    .ng-option:hover {
+      background-color: $color-light-gray;
+    }
+  }
+}
+
+ng-select.ng-select-opened > .ng-select-container {
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px $color-white;
+
+  .ng-arrow-wrapper .ng-arrow {
+    margin-bottom: 0px;
+    margin-top: 4px;
+    transform: rotate(-135deg);
+  }
+}
+
+// Add a set to open and close or select
+ng-select .ng-arrow-wrapper .ng-arrow {
+  width: 8px;
+  height: 8px;
+  border: solid $color-black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+// Hide placeholder when an option is selected
+ng-select
+  > .ng-select-container.ng-has-value
+  > .ng-value-container
+  > .ng-placeholder {
+  display: none;
+}

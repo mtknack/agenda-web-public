@@ -1,0 +1,96 @@
+@import "../../../styles.scss";
+
+/* task-list.component.css */
+.body {
+  margin: auto 1rem;
+}
+
+.body-list {
+  display: flex;
+}
+
+.vertical-menu {
+  min-width: fit-content;
+}
+
+.list {
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.horizontal-menu {
+  display: flex;
+  width: 100%;
+
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  .filters {
+    width: 100%;
+    display: flex;
+
+    .input-search {
+      width: 100%;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.task-list-container {
+  font-family: Arial, sans-serif;
+  background-color: transparent;
+  border: 1px solid $color-light-gray;
+
+  .table {
+    .thead {
+      .tr {
+        display: flex;
+        .th {
+          padding: 10px 0;
+          background-color: $color-blue;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .tbody {
+      width: 100%;
+      div {
+        .tr {
+          display: flex;
+          border-bottom: 1px solid $color-light-gray-hover;
+          .td {
+            padding: 5px 0;
+          }
+        }
+      }
+    }
+
+    .tr-expand {
+      padding: 0;
+      border: 0;
+      .td-expand {
+        width: 100%;
+        margin: 0;
+        padding: 1rem;
+        border-bottom: 1px solid $color-light-gray-hover;
+      }
+    }
+  }
+}
+
+.checkbox {
+  flex: 0 0 auto;
+  width: 40px;
+}
+
+.importance-bar {
+  width: 100px;
+  height: 10px;
+  background-color: #e0e0e0;
+}
+
+.importance-level {
+  height: 100%;
+  background-color: #4caf50;
+}

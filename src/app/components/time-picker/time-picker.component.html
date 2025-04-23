@@ -1,0 +1,23 @@
+<div class="time-picker">
+  <input
+    type="time"
+    id="timeInput"
+    #timeInput
+    [disabled]="disabled"
+    [value]="value"
+    (change)="onTimeChange($event)"
+  />
+  <button
+    type="button"
+    class="button-toggle"
+    (click)="openTimePicker()"
+    [disabled]="disabled"
+  >
+    <fa-icon
+      [icon]="faClock"
+      size="1x"
+      alt="Open time picker"
+      [ngStyle]="{ color: 'var(--icon-color-secondary)' }"
+    ></fa-icon>
+  </button>
+</div>

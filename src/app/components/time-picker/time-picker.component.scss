@@ -1,0 +1,66 @@
+@import "../../../styles.scss";
+
+.time-picker {
+  display: flex;
+
+  .button-toggle {
+    border-radius: 0 8px 8px 0;
+    border: 1px solid $color-light-gray-hover;
+    padding: 6px 8px;
+    max-height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 16px;
+    }
+
+    &:hover {
+      background-color: $color-light-gray-hover;
+    }
+
+    &:disabled {
+      fa-icon {
+        --icon-color-secondary: #7e7e7e;
+      }
+    }
+
+    &:disabled:hover {
+      background-color: initial;
+    }
+  }
+}
+
+input[type="time"] {
+  size: 20px;
+  height: 40px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid $color-light-gray-hover;
+  cursor: pointer;
+  box-sizing: content-box;
+  background: none transparent;
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  width: 100%;
+  text-indent: 8px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+/* Para Firefox */
+input[type="time"]::-moz-focus-inner {
+  border: 0;
+}
+
+// input[type="time"]::before {
+//   content: "HH:MM"; /* Placeholder fake */
+//   color: gray;
+//   position: absolute;
+//   pointer-events: none;
+//   left: 10px;
+// }

@@ -1,0 +1,32 @@
+quill-editor {
+  width: 100%;
+
+  .ql-toolbar.ql-snow {
+    border-radius: 8px 8px 0 0;
+    border: 1px solid $color-light-gray-hover;
+  }
+
+  .ql-container.ql-snow {
+    border-radius: 0 0 8px 8px;
+    border: 1px solid $color-light-gray-hover;
+
+    .ql-editor {
+      height: 8rem;
+    }
+  }
+}
+
+quill-editor.view {
+  .ql-toolbar.ql-snow {
+    display: none;
+  }
+
+  .ql-container.ql-snow {
+    border-radius: 0;
+    border: 0;
+
+    .ql-editor {
+      height: auto;
+    }
+  }
+}

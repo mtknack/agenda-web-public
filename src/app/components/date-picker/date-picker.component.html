@@ -1,0 +1,46 @@
+<div class="date-picker">
+  <input
+    type="date-picker"
+    [id]="id"
+    [(ngModel)]="_dateVisible"
+    [attr.placeholder]="placeholder"
+    [disabled]="disabled"
+    maxlength="10"
+    mask="00/00/0000"
+    [specialCharacters]="['/']"
+    (change)="formatDate()"
+  />
+  <input
+    ngbDatepicker
+    #d="ngbDatepicker"
+    #dir="ngModel"
+    type="hidden"
+    [id]="id + 'hidden'"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    [placement]="placement"
+    [footerTemplate]="datePickerButtons"
+    [(ngModel)]="date"
+    [positionTarget]="reference"
+  />
+  <button
+    #reference
+    class="button-toggle"
+    (click)="d.toggle()"
+    [disabled]="disabled"
+  >
+    <fa-icon
+      [icon]="faCalendar"
+      size="1x"
+      alt="Abrir seletor de data"
+      [ngStyle]="{ color: 'var(--icon-color-secondary)' }"
+    ></fa-icon>
+  </button>
+</div>
+<ng-template #datePickerButtons>
+  <div class="date-picker-buttons">
+    <button (click)="today(); d.close()"><p>Hoje</p></button>
+    <button (click)="clear()"><p>Limpar</p></button>
+    <button (click)="d.close()"><p>Fechar</p></button>
+  </div>
+</ng-template>

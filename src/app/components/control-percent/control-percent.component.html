@@ -1,0 +1,18 @@
+<div class="control-percent">
+  <div class="percent">
+    <p>{{ value }}%</p>
+  </div>
+  <input
+    type="range"
+    name=""
+    id="slider"
+    min="0"
+    max="100"
+    #slider
+    [value]="value"
+    [disabled]="disabled"
+    (change)="onTimeChange($event)"
+    (input)="updateVolume($event)"
+    [style.setProperty]="'--progress-color:' + progressColor"
+  />
+</div>

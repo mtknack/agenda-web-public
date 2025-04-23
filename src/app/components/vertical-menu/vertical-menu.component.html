@@ -1,0 +1,76 @@
+<div class="vertical-menu">
+  <div class="mb-2">
+    <button class="default-button" routerLink="/create">
+      <div class="icon-button">
+        <fa-icon
+          [icon]="faPlus"
+          size="xl"
+          [ngStyle]="{ color: 'var(--icon-color)' }"
+        ></fa-icon>
+      </div>
+      <div class="text-button">
+        <p>Add</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="mb-2">
+    <button class="default-button">
+      <div class="icon-button">
+        <fa-icon
+          [icon]="faCheck"
+          size="xl"
+          [ngStyle]="{ color: 'var(--icon-color)' }"
+        ></fa-icon>
+      </div>
+      <div class="text-button">
+        <p>Complete</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="mb-2">
+    <button class="default-button">
+      <div class="icon-button">
+        <fa-icon
+          [icon]="faForward"
+          size="xl"
+          [ngStyle]="{ color: 'var(--icon-color)' }"
+        ></fa-icon>
+      </div>
+      <div class="text-button">
+        <p>Tomorrow</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="mb-2">
+    <button class="default-button">
+      <div class="icon-button">
+        <fa-icon
+          [icon]="faCalendarDay"
+          size="xl"
+          [ngStyle]="{ color: 'var(--icon-color)' }"
+        ></fa-icon>
+      </div>
+      <div class="text-button">
+        <p>Reschedule</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="mb-2">
+    <button class="default-button" routerLink="/personalize">
+      <div class="icon-button">
+        <fa-icon
+          [icon]="faAdjust"
+          size="xl"
+          [ngStyle]="{ color: 'var(--icon-color)' }"
+        ></fa-icon>
+      </div>
+      <div class="text-button">
+        <p>Customize</p>
+      </div>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="login" [formGroup]="form">
+  <div class="center-login">
+    <div class="row">
+      <div class="col">
+        <label for="name">Email</label>
+        <input
+          id="name"
+          formControlName="name"
+          type="text"
+          placeholder="Enter your email"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="text"
+          placeholder="Enter your password"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input id="remember" formControlName="remember" type="checkbox" />
+        <label for="remember">Remember Login</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button class="default-button" (click)="onSubmit()">
+          <div class="icon-button">
+            <fa-icon
+              [icon]="faPlus"
+              size="xl"
+              [ngStyle]="{ color: 'var(--icon-color)' }"
+            ></fa-icon>
+          </div>
+          <div class="text-button">
+            <p>Sign In</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

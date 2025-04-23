@@ -1,0 +1,120 @@
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col">
+      <label for="title">Title:</label>
+      <input
+        id="title"
+        formControlName="title"
+        type="text"
+        placeholder="Task title"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="description">Description:</label>
+      <quill-editor
+        id="description"
+        formControlName="description"
+        [modules]="getQuillModules('description')"
+        [formats]="getQuillFormats('description')"
+        (onEditorCreated)="setQuillEditor($event, 'description')"
+        placeholder="Task description"
+      ></quill-editor>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="startDate">Start Date:</label>
+      <app-date-picker
+        id="startDate"
+        formControlName="startDate"
+      ></app-date-picker>
+    </div>
+    <div class="col">
+      <label for="startTime">Start Time:</label>
+      <app-time-picker
+        id="startTime"
+        formControlName="startTime"
+      ></app-time-picker>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="endDate">End Date:</label>
+      <app-date-picker id="endDate" formControlName="endDate"></app-date-picker>
+    </div>
+    <div class="col">
+      <label for="endTime">Start Time:</label>
+      <app-time-picker id="endTime" formControlName="endTime"></app-time-picker>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="type">Type:</label>
+      <ng-select
+        id="type"
+        name="type"
+        formControlName="type"
+        bindLabel="description"
+        bindValue="id"
+        [placeholder]="'Select a type'"
+        [items]="typesSelect"
+      >
+      </ng-select>
+    </div>
+    <div class="col">
+      <label for="importance">Importance:</label>
+      <app-control-percent
+        id="importance"
+        formControlName="importance"
+      ></app-control-percent>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="location">Location:</label>
+      <input
+        id="location"
+        formControlName="location"
+        placeholder="Event location"
+        type="text"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="notifications">Notifications (in minutes):</label>
+      <app-time-picker
+        id="notifications"
+        formControlName="notifications"
+      ></app-time-picker>
+    </div>
+  </div>
+
+  <button
+    class="default-button"
+    (click)="isCreate ? onSubmit() : isEdit ? onEdit() : edit()"
+  >
+    <div class="icon-button">
+      <fa-icon
+        [icon]="isCreate ? faPlus : isEdit ? faFloppyDisk : faPenToSquare"
+        size="xl"
+        [ngStyle]="{ color: 'var(--icon-color)' }"
+      ></fa-icon>
+    </div>
+    <div class="text-button">
+      <p>
+        {{
+          isView ? (form.disabled ? "Edit Task" : "Save Changes") : "Save Task"
+        }}
+      </p>
+    </div>
+  </button>
+</form>

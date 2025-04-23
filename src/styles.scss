@@ -1,0 +1,131 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./styles/colors.scss";
+@import "bootstrap/scss/bootstrap";
+@import "./styles//ng-select.scss";
+@import "./styles/quill-editor.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/**************** input styles ****************/
+input[type="checkbox"] {
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  margin: 5px;
+  size: 20px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  size: 20px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid $color-light-gray-hover;
+  cursor: pointer;
+  box-sizing: content-box;
+  background: none transparent;
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  width: 100%;
+  text-indent: 8px;
+}
+
+/**************** text area styles **************/
+
+textarea {
+  size: 20px;
+  height: 80px;
+  max-height: 200px;
+  min-height: 40px;
+  border-radius: 8px;
+  border: 1px solid $color-light-gray-hover;
+  cursor: pointer;
+  box-sizing: content-box;
+  background: none transparent;
+  box-shadow: none;
+  outline: none;
+  padding: 8px 0;
+  width: 100%;
+  text-indent: 8px;
+}
+
+/**************** button styles ****************/
+.default-button {
+  width: 10.5rem;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: $color-light-gray;
+  padding: 0;
+  border-radius: 6px;
+  border: none;
+
+  .icon-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    background-color: $color-black;
+    border-radius: 6px 0 0 6px;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 20px;
+    }
+  }
+
+  .text-button {
+    width: 8rem;
+
+    p {
+      margin: 0;
+      text-align: center;
+      font-size: large;
+    }
+  }
+}
+
+.default-button:hover {
+  background-color: $color-light-gray-hover;
+}
+
+/****************** form styles ******************/
+.row {
+  margin-bottom: 0.5rem;
+}
+
+/****************** table style ******************/
+
+.table .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/****************** icon style ******************/
+
+.animate-icon-rotate {
+  transform: rotate(0deg);
+  transition: transform 0.3s linear;
+}
+
+.animate-icon-rotate.open {
+  transform: rotate(-180deg);
+  transition: transform 0.3s linear;
+}
+
+/****************** style mode ******************/
+:root {
+  --primary-color: #fff; /* Cor padrão */
+  --secondary-color: #000;
+  --icon-color: var(--primary-color);
+  --icon-color-secondary: var(--secondary-color);
+}
+
+.dark-mode {
+  --primary-color: #1abc9c; /* Cor diferente para dark mode */
+}

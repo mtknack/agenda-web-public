@@ -1,0 +1,17 @@
+<div class="header-body">
+  <div></div>
+  <div class="header-date">
+    <p>{{ currentDate | date : "dd 'de' MMMM 'de' yyyy" }}</p>
+    <p>{{ time }}</p>
+  </div>
+
+  <div class="logout" (click)="logout()" ngbTooltip="logout">
+    <div class="icon-button">
+      <fa-icon
+        [icon]="faSignOutAlt"
+        size="xl"
+        [ngStyle]="{ color: 'var(--icon-color)' }"
+      ></fa-icon>
+    </div>
+  </div>
+</div>

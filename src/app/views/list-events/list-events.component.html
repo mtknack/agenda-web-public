@@ -1,0 +1,168 @@
+<div class="body">
+  <div class="horizontal-menu">
+    <div class="filters">
+      <div class="input-search">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="General search field"
+              class="search-bar"
+              [(ngModel)]="taskFilter.title"
+            />
+          </div>
+
+          <div class="col">
+            <ng-select
+              id="tipo"
+              name="tipo"
+              bindLabel="description"
+              bindValue="id"
+              [placeholder]="'Select a type'"
+              [items]="typesSelect"
+              [(ngModel)]="taskFilter.type"
+            >
+            </ng-select>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <button class="default-button" (click)="listEvents()">
+          <div class="icon-button">
+            <fa-icon
+              [icon]="faFilter"
+              size="xl"
+              [ngStyle]="{ color: 'var(--icon-color)' }"
+            ></fa-icon>
+          </div>
+          <div class="text-button">
+            <p>Filter</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="body-list">
+    <div class="list">
+      <div class="task-list-container">
+        <div class="table">
+          <div class="thead">
+            <div class="tr">
+              <div class="th checkbox"></div>
+              <div class="th col" (click)="sorted('title')">
+                Task Title
+                <app-sort-icon
+                  currentKey="title"
+                  [pagination]="pagination"
+                ></app-sort-icon>
+              </div>
+              <div class="th col-2" (click)="sorted('importance')">
+                Importance
+                <app-sort-icon
+                  currentKey="importance"
+                  [pagination]="pagination"
+                ></app-sort-icon>
+              </div>
+              <div class="th col-1" (click)="sorted('type')">
+                Type
+                <app-sort-icon
+                  currentKey="type"
+                  [pagination]="pagination"
+                ></app-sort-icon>
+              </div>
+              <div class="th col-2" (click)="sorted('startDateTime')">
+                Start Day
+                <app-sort-icon
+                  currentKey="startDateTime"
+                  [pagination]="pagination"
+                ></app-sort-icon>
+              </div>
+              <div class="th col-2" (click)="sorted('endDateTime')">
+                End Day
+                <app-sort-icon
+                  currentKey="endDateTime"
+                  [pagination]="pagination"
+                ></app-sort-icon>
+              </div>
+              <div class="th col-1 center"></div>
+            </div>
+          </div>
+          <div class="tbody">
+            <div *ngFor="let item of items; let i = index">
+              <div class="tr">
+                <div class="td checkbox">
+                  <input type="checkbox" />
+                </div>
+                <div class="td col">{{ item.title }}</div>
+                <div class="td col-2">
+                  <div class="importance-bar">
+                    <div
+                      class="importance-level"
+                      [style.width]="item.importance + '%'"
+                    ></div>
+                  </div>
+                </div>
+                <div class="td col-1">{{ item.type }}</div>
+                <div class="td col-2">
+                  {{ item.startDateTime | datePipe }} at
+                  {{ item.startDateTime | dateTimePipe }}
+                </div>
+                <div class="td col-2">
+                  {{ item.endDateTime | datePipe }} at
+                  {{ item.endDateTime | dateTimePipe }}
+                </div>
+                <div class="th col-1 center gap-2">
+                  <fa-icon
+                    ngbTooltip="Show details"
+                    (click)="toggleExpand(i)"
+                    [icon]="faChevronDown"
+                    size="1x"
+                    [ngStyle]="{ color: 'var(--icon-color-secondary)' }"
+                    [class]="'animate-icon-rotate' + rotate(i)"
+                  ></fa-icon>
+                  <fa-icon
+                    ngbTooltip="Edit task"
+                    (click)="edit(item.id)"
+                    [icon]="faEdit"
+                    size="1x"
+                    [ngStyle]="{ color: 'var(--icon-color-secondary)' }"
+                  ></fa-icon>
+                </div>
+              </div>
+              <div class="tr-expand" *ngIf="expandedIndex === i">
+                <div class="td-expand col">
+                  <quill-editor
+                    id="description"
+                    class="view"
+                    disabled="true"
+                    [ngModel]="item.description"
+                    placeholder="Task description"
+                  ></quill-editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="d-flex justify-content-between p-2">
+          <ngb-pagination
+            [collectionSize]="collectionSize"
+            [(page)]="page"
+            [pageSize]="pageSize"
+            (pageChange)="refreshCountries()"
+          >
+          </ngb-pagination>
+
+          <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+          </select>
+        </div> -->
+      </div>
+    </div>
+    <div class="vertical-menu">
+      <app-vertical-menu></app-vertical-menu>
+    </div>
+  </div>
+</div>
